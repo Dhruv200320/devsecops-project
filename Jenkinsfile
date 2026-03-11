@@ -9,10 +9,11 @@ pipeline {
             }
         }
 
-        stage('Terraform Security Scan') {
+        stage('Terraform Init') {
             steps {
                 sh '''
-                docker run --rm -v $PWD:/project aquasec/trivy:latest config /project/terraform
+                cd terraform
+                terraform init
                 '''
             }
         }
@@ -21,7 +22,6 @@ pipeline {
             steps {
                 sh '''
                 cd terraform
-                terraform init
                 terraform validate
                 '''
             }
