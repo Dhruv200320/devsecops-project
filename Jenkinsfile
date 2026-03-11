@@ -9,10 +9,19 @@ pipeline {
             }
         }
 
+        stage('Install Trivy') {
+            steps {
+                sh '''
+                wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.50.0_Linux-64bit.tar.gz
+                tar zxvf trivy_0.50.0_Linux-64bit.tar.gz
+                '''
+            }
+        }
+
         stage('Terraform Security Scan') {
             steps {
                 sh '''
-                docker run --rm -v $PWD:/project aquasec/trivy config /project/terraform
+                ./trivy config terraform/
                 '''
             }
         }
