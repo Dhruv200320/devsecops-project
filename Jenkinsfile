@@ -12,8 +12,8 @@ pipeline {
         stage('Install Trivy') {
             steps {
                 sh '''
-                curl -L https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.50.0_Linux-64bit.tar.gz -o trivy.tar.gz
-                tar zxvf trivy.tar.gz
+                curl -L -o trivy https://github.com/aquasecurity/trivy/releases/latest/download/trivy_Linux-64bit
+                chmod +x trivy
                 '''
             }
         }
