@@ -27,5 +27,14 @@ pipeline {
             }
         }
 
+        stage('Terraform Plan') {
+            steps {
+                bat '''
+                cd terraform
+                terraform plan
+                '''
+            }
+        }
+
     }
 }
