@@ -11,16 +11,18 @@ pipeline {
 
         stage('Terraform Init') {
             steps {
-                sh '''
-                docker run --rm -v $PWD:/workspace -w /workspace/terraform hashicorp/terraform:latest init
+                bat '''
+                cd terraform
+                terraform init
                 '''
             }
         }
 
         stage('Terraform Validate') {
             steps {
-                sh '''
-                docker run --rm -v $PWD:/workspace -w /workspace/terraform hashicorp/terraform:latest validate
+                bat '''
+                cd terraform
+                terraform validate
                 '''
             }
         }
