@@ -237,7 +237,7 @@ Generates an execution plan before deployment.
 ### Application Running on Cloud Public IP
 ![Application Running](Project_SS/4.png)
 
-Example Access URL:
+Example Access URL: http://13.126.72.105:3000/
 
 ---
 
