@@ -231,14 +231,11 @@ Generates an execution plan before deployment.
 ### Terraform Infrastructure Plan
 ![Terraform Plan](Project_SS/3.png)
 
-### Security Fix – SSH Restriction
-![Terraform Fix](Project_SS/3.png)
-
-### Storage Encryption Enabled
-![Encryption](Project_SS/4.png)
+### Trivy Security Scan
+![Terraform Fix](Project_SS/5.png)
 
 ### Application Running on Cloud Public IP
-![Application Running](Project_SS/5.png)
+![Application Running](Project_SS/4.png)
 
 Example Access URL:
 
