@@ -272,7 +272,7 @@ AI was used as a **learning and support tool**, while all implementation, testin
 # 🤖 Access
 
 Website Link: http://13.126.72.105:3000/
-Video Link: 
+Video Link: https://drive.google.com/file/d/1ewaNb-zMtFN1LtugLeU_Abw6jotK1Fnl/view?usp=sharing
 
 AI was used as a **learning and support tool**, while all implementation, testing, and deployment were performed manually.
 
