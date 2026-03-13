@@ -272,4 +272,4 @@ AI was used as a **learning and support tool**, while all implementation, testin
 # 👤 Author
 
 **Dhruv Rupareliya**  
-DevSecOps Assignment – GET 2026
+
