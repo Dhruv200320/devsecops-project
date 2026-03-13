@@ -269,6 +269,15 @@ AI was used as a **learning and support tool**, while all implementation, testin
 
 ---
 
+# 🤖 Access
+
+Website Link: http://13.126.72.105:3000/
+Video Link: 
+
+AI was used as a **learning and support tool**, while all implementation, testing, and deployment were performed manually.
+
+---
+
 # 👤 Author
 
 **Dhruv Rupareliya**  
