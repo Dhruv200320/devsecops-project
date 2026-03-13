@@ -2,4 +2,6 @@ node_modules/
 .terraform/
 *.tfstate
 *.tfstate.backup
+*.pem
 terraform-provider*
+terraform/devsecops-key.pem
