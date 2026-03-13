@@ -1,0 +1,95 @@
+Started by user Dhruv Rupareliya
+Obtained Jenkinsfile from git https://github.com/Dhruv200320/devsecops-project.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/Dhruv200320/devsecops-project.git
+ > git.exe init C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline # timeout=10
+Fetching upstream changes from https://github.com/Dhruv200320/devsecops-project.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.44.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/Dhruv200320/devsecops-project.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe config remote.origin.url https://github.com/Dhruv200320/devsecops-project.git # timeout=10
+ > git.exe config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 8a5cb34f5b555d526f524b0a1cf84023cacf08e3 (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 8a5cb34f5b555d526f524b0a1cf84023cacf08e3 # timeout=10
+Commit message: "Fix Jenkins pipeline for Windows"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Clone Repository)
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/Dhruv200320/devsecops-project.git # timeout=10
+Fetching upstream changes from https://github.com/Dhruv200320/devsecops-project.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.44.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/Dhruv200320/devsecops-project.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 8a5cb34f5b555d526f524b0a1cf84023cacf08e3 (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 8a5cb34f5b555d526f524b0a1cf84023cacf08e3 # timeout=10
+ > git.exe branch -a -v --no-abbrev # timeout=10
+ > git.exe checkout -b main 8a5cb34f5b555d526f524b0a1cf84023cacf08e3 # timeout=10
+Commit message: "Fix Jenkins pipeline for Windows"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Terraform Init)
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline>cd terraform 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline\terraform>terraform init 
+[0m[1mInitializing the backend...[0m
+[0m[1mInitializing provider plugins...[0m
+- Reusing previous version of hashicorp/aws from the dependency lock file
+- Installing hashicorp/aws v6.35.1...
+- Installed hashicorp/aws v6.35.1 (signed by HashiCorp)
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Terraform Validate)
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline>cd terraform 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline\terraform>terraform validate 
+[32m[1mSuccess![0m The configuration is valid.
+[0m
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

@@ -1,0 +1,343 @@
+Started by user Dhruv Rupareliya
+Obtained Jenkinsfile from git https://github.com/Dhruv200320/devsecops-project.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/Dhruv200320/devsecops-project.git # timeout=10
+Fetching upstream changes from https://github.com/Dhruv200320/devsecops-project.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.44.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/Dhruv200320/devsecops-project.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision b82adf6a2d79193657ccd5e09e930e94ec347d0f (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f b82adf6a2d79193657ccd5e09e930e94ec347d0f # timeout=10
+Commit message: "Added Trivy security scan stage in Jenkins pipeline"
+ > git.exe rev-list --no-walk 81591c2037b80ce17c5879da008e570246407cd1 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/Dhruv200320/devsecops-project.git # timeout=10
+Fetching upstream changes from https://github.com/Dhruv200320/devsecops-project.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.44.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/Dhruv200320/devsecops-project.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision b82adf6a2d79193657ccd5e09e930e94ec347d0f (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f b82adf6a2d79193657ccd5e09e930e94ec347d0f # timeout=10
+ > git.exe branch -a -v --no-abbrev # timeout=10
+ > git.exe branch -D main # timeout=10
+ > git.exe checkout -b main b82adf6a2d79193657ccd5e09e930e94ec347d0f # timeout=10
+Commit message: "Added Trivy security scan stage in Jenkins pipeline"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Terraform Security Scan)
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline>c:/trivy config terraform 
+2026-03-12T17:09:19+05:30	INFO	[misconfig] Misconfiguration scanning is enabled
+2026-03-12T17:09:19+05:30	INFO	[checks-client] Need to update the checks bundle
+2026-03-12T17:09:19+05:30	INFO	[checks-client] Downloading the checks bundle...
+223.26 KiB / 235.65 KiB [------------------------------------------------------->___] 94.74% ? p/s ?235.65 KiB / 235.65 KiB [--------------------------------------------------------->] 100.00% ? p/s ?235.65 KiB / 235.65 KiB [--------------------------------------------------------->] 100.00% ? p/s ?235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 20.67 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 20.67 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 20.67 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 19.33 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 19.33 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 19.33 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 18.08 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 18.08 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 18.08 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 16.92 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 16.92 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 16.92 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 15.83 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 15.83 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 15.83 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 14.81 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 14.81 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 14.81 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 13.85 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 13.85 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 13.85 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 12.96 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-------------------------------------------->] 100.00% 12.96 KiB p/s ETA 0s235.65 KiB / 235.65 KiB [-----------------------------------------------] 100.00% 46.55 KiB p/s 5.3s2026-03-12T17:09:41+05:30	INFO	[terraform scanner] Scanning root module	file_path="."
+2026-03-12T17:09:42+05:30	INFO	Detected config files	num=2
+
+Report Summary
+
+┌─────────┬───────────┬───────────────────┐
+│ Target  │   Type    │ Misconfigurations │
+├─────────┼───────────┼───────────────────┤
+│ .       │ terraform │         0         │
+├─────────┼───────────┼───────────────────┤
+│ main.tf │ terraform │         8         │
+└─────────┴───────────┴───────────────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+
+main.tf (terraform)
+===================
+Tests: 8 (SUCCESSES: 0, FAILURES: 8)
+Failures: 8 (UNKNOWN: 0, LOW: 4, MEDIUM: 0, HIGH: 3, CRITICAL: 1)
+
+AWS-0028 (HIGH): Instance does not require IMDS access to require a token.
+════════════════════════════════════════
+IMDS v2 (Instance Metadata Service) introduced session authentication tokens which improve security when talking to IMDS.
+
+By default <code>aws_instance</code> resource sets IMDS session auth tokens to be optional.
+
+To fully protect IMDS you need to enable session tokens by using <code>metadata_options</code> block and its <code>http_tokens</code> variable set to <code>required</code>.
+
+
+See https://avd.aquasec.com/misconfig/aws-0028
+────────────────────────────────────────
+ main.tf:33-42
+────────────────────────────────────────
+  33 ┌ resource "aws_instance" "web" {
+  34 │  ami           = "ami-0e670eb768a5fc3d4"
+  35 │  instance_type = "t3.micro"
+  36 │ 
+  37 │  vpc_security_group_ids = [aws_security_group.web_sg.id]
+  38 │ 
+  39 │  tags = {
+  40 │    Name = "devsecops-instance"
+  41 │  }
+  42 └ }
+────────────────────────────────────────
+
+
+AWS-0099 (LOW): Security group explicitly uses the default description.
+════════════════════════════════════════
+Security groups should include a description for auditing purposes.
+
+Simplifies auditing, debugging, and managing security groups.
+
+
+See https://avd.aquasec.com/misconfig/aws-0099
+────────────────────────────────────────
+ main.tf:5-31
+────────────────────────────────────────
+   5 ┌ resource "aws_security_group" "web_sg" {
+   6 │  name = "devsecops-sg"
+   7 │ 
+   8 │  ingress {
+   9 │    from_port = 22
+  10 │    to_port = 22
+  11 │    protocol = "tcp"
+  12 │ 
+  13 └    cidr_blocks = ["0.0.0.0/0"]  # Intentional vulnerability
+  ..   
+────────────────────────────────────────
+
+
+AWS-0104 (CRITICAL): Security group rule allows unrestricted egress to any IP address.
+════════════════════════════════════════
+Opening up ports to connect out to the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
+
+
+See https://avd.aquasec.com/misconfig/aws-0104
+────────────────────────────────────────
+ main.tf:29
+   via main.tf:24-30 (egress)
+    via main.tf:5-31 (aws_security_group.web_sg)
+────────────────────────────────────────
+   5   resource "aws_security_group" "web_sg" {
+   .   
+  29 [    cidr_blocks = ["0.0.0.0/0"]
+  ..   
+  31   }
+────────────────────────────────────────
+
+
+AWS-0107 (HIGH): Security group rule allows unrestricted ingress from any IP address.
+════════════════════════════════════════
+Security groups provide stateful filtering of ingress and egress network traffic to AWS
+resources. It is recommended that no security group allows unrestricted ingress access to
+remote server administration ports, such as SSH to port 22 and RDP to port 3389.
+
+
+See https://avd.aquasec.com/misconfig/aws-0107
+────────────────────────────────────────
+ main.tf:13
+   via main.tf:8-14 (ingress)
+    via main.tf:5-31 (aws_security_group.web_sg)
+────────────────────────────────────────
+   5   resource "aws_security_group" "web_sg" {
+   .   
+  13 [    cidr_blocks = ["0.0.0.0/0"]  # Intentional vulnerability
+  ..   
+  31   }
+────────────────────────────────────────
+
+
+AWS-0124 (LOW): Security group rule does not have a description.
+════════════════════════════════════════
+Security group rules should include a description for auditing purposes.
+
+Simplifies auditing, debugging, and managing security groups.
+
+
+See https://avd.aquasec.com/misconfig/aws-0124
+────────────────────────────────────────
+ main.tf:8-14
+   via main.tf:5-31 (aws_security_group.web_sg)
+────────────────────────────────────────
+   5   resource "aws_security_group" "web_sg" {
+   .   
+   8 ┌  ingress {
+   9 │    from_port = 22
+  10 │    to_port = 22
+  11 │    protocol = "tcp"
+  12 │ 
+  13 │    cidr_blocks = ["0.0.0.0/0"]  # Intentional vulnerability
+  14 └  }
+  ..   
+────────────────────────────────────────
+
+
+AWS-0124 (LOW): Security group rule does not have a description.
+════════════════════════════════════════
+Security group rules should include a description for auditing purposes.
+
+Simplifies auditing, debugging, and managing security groups.
+
+
+See https://avd.aquasec.com/misconfig/aws-0124
+────────────────────────────────────────
+ main.tf:16-22
+   via main.tf:5-31 (aws_security_group.web_sg)
+────────────────────────────────────────
+   5   resource "aws_security_group" "web_sg" {
+   .   
+  16 ┌  ingress {
+  17 │    from_port = 3000
+  18 │    to_port = 3000
+  19 │    protocol = "tcp"
+  20 │ 
+  21 │    cidr_blocks = ["0.0.0.0/0"]
+  22 └  }
+  ..   
+────────────────────────────────────────
+
+
+AWS-0124 (LOW): Security group rule does not have a description.
+════════════════════════════════════════
+Security group rules should include a description for auditing purposes.
+
+Simplifies auditing, debugging, and managing security groups.
+
+
+See https://avd.aquasec.com/misconfig/aws-0124
+────────────────────────────────────────
+ main.tf:24-30
+   via main.tf:5-31 (aws_security_group.web_sg)
+────────────────────────────────────────
+   5   resource "aws_security_group" "web_sg" {
+   .   
+  24 ┌  egress {
+  25 │    from_port = 0
+  26 │    to_port = 0
+  27 │    protocol = "-1"
+  28 │ 
+  29 │    cidr_blocks = ["0.0.0.0/0"]
+  30 └  }
+  31   }
+────────────────────────────────────────
+
+
+AWS-0131 (HIGH): Root block device is not encrypted.
+════════════════════════════════════════
+Block devices should be encrypted to ensure sensitive data is held securely at rest.
+
+
+See https://avd.aquasec.com/misconfig/aws-0131
+────────────────────────────────────────
+ main.tf:33-42
+────────────────────────────────────────
+  33 ┌ resource "aws_instance" "web" {
+  34 │  ami           = "ami-0e670eb768a5fc3d4"
+  35 │  instance_type = "t3.micro"
+  36 │ 
+  37 │  vpc_security_group_ids = [aws_security_group.web_sg.id]
+  38 │ 
+  39 │  tags = {
+  40 │    Name = "devsecops-instance"
+  41 │  }
+  42 └ }
+────────────────────────────────────────
+
+
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Terraform Init)
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline>cd terraform 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline\terraform>terraform init 
+[0m[1mInitializing the backend...[0m
+[0m[1mInitializing provider plugins...[0m
+- Reusing previous version of hashicorp/aws from the dependency lock file
+- Using previously-installed hashicorp/aws v6.35.1
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Terraform Validate)
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline>cd terraform 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline\terraform>terraform validate 
+[32m[1mSuccess![0m The configuration is valid.
+[0m
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Terraform Plan)
+[Pipeline] withCredentials
+Masking supported pattern matches of %AWS_ACCESS_KEY_ID% or %AWS_SECRET_ACCESS_KEY%
+[Pipeline] {
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline>set AWS_ACCESS_KEY_ID=**** 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline>set AWS_SECRET_ACCESS_KEY=**** 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline>set AWS_DEFAULT_REGION=ap-south-1 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline>cd terraform 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\devsecops-pipeline\terraform>terraform plan 
+
+[0m[1m[31mPlanning failed.[0m[1m Terraform encountered an error while generating this plan.[0m
+
+[0m[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mRetrieving AWS account details: validating provider credentials: retrieving caller identity from STS: operation error STS: GetCallerIdentity, https response error StatusCode: 403, RequestID: 9ec40058-91f9-4375-a47d-a0c5f7eb746e, api error SignatureDoesNotMatch: The request signature we calculated does not match the signature you provided. Check your AWS Secret Access Key and signing method. Consult the service documentation for details.[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  with provider["registry.terraform.io/hashicorp/aws"],
+[31m│[0m [0m  on main.tf line 1, in provider "aws":
+[31m│[0m [0m   1: provider "aws" [4m{[0m[0m
+[31m│[0m [0m
+[31m╵[0m[0m
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE
